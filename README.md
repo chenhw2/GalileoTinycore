@@ -43,7 +43,7 @@ The FAT32 partition(mmcblk0p1) (64Mib is enough) will have:
         |- grub/
             |- grub.conf 
 
-The EXT4 partition (mmcblk0p2) will have:
+The EXT3 partition (mmcblk0p2) will have:
 
     |
     |- tce/
