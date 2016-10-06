@@ -9,6 +9,4 @@ Console is set to ttyS1 (TTL Serial Port on Galileo Gen2) 115200 8n1.
 
 No swap or compressed swap.
 
-Home is on second partition of the microSD card.
-
 Quiet so the kernel dmesgs do not appear on the serial port.

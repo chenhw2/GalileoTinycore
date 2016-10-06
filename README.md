@@ -22,7 +22,7 @@ If you are using linux I suggest using gparted. Create a new partition table (ms
 
 ## Modifying the Tinycore Initramfs (core.gz)
 
-Follow the instructions on initramfs/README. Since we communicate with the Galileo Board using UART, the inittab has to be changed to autologin on /dev/ttyS1 instead of /dev/tty1. Make sure you get rid of the tinycore built-in kernel modules distributed with tinycore since we are compiling our own kernel.
+Follow the instructions on initramfs/README. Since we communicate with the Galileo Board using UART, the inittab has to be changed to autologin on /dev/ttyS1 instead of /dev/tty1. Make sure you get rid of the tinycore built-in kernel modules distributed with tinycore since we are compiling our own kernel. Set /etc/sysconfig/backup_device to be mmcblk0p2/tce
 
 ## Compiling the kernel
 
@@ -33,19 +33,19 @@ Tinycore generates a set of kernel-extensions so the kernel modules are not all 
 
 Once the kernel is compiled and the kernel modules are placed into the initramfs, you need to copy the files into the microSD card as listed below.
 
-The FAT32 partition (mmcblk0p1) will have:
+The FAT32 partition(mmcblk0p1) (64Mib is enough) will have:
 
     |
+    |- bzImage
+    |- core.gz
     |- grub.efi
     |- boot/
         |- grub/
             |- grub.conf 
 
-The EXT3 partition (mmcblk0p2) will have:
+The EXT4 partition (mmcblk0p2) will have:
 
     |
-    |- bzImage
-    |- core.gz
     |- tce/
         |- onboot.lst
         |- optional/
